@@ -8,7 +8,7 @@ type Sandbox struct {
 	Configuration Configuration
 }
 
-func (s *Sandbox) toXML() (string, error) {
+func (s *Sandbox) ToXML() (string, error) {
 	xmlBytes, err := xml.MarshalIndent(s.Configuration, "", "    ")
 	if err != nil {
 		return "", err
@@ -16,7 +16,7 @@ func (s *Sandbox) toXML() (string, error) {
 	return string(xmlBytes), nil
 }
 
-func (s *Sandbox) fromXML(xmlString string) error {
+func (s *Sandbox) FromXML(xmlString string) error {
 	return xml.Unmarshal([]byte(xmlString), s)
 }
 
